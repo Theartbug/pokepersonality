@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PokeFlip</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href="styles/normalize.css">
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/layout.css">
+        <link rel="stylesheet" href="styles/modules.css">
+        <link rel="stylesheet" href="styles/state.css"> -->
+        <script id="match-template" type="text/x-handlebars-template">
+            <div class="match">
+                <div class="poke-image">
+                    <img src="{{img_url}}">
+                </div>
+                <p class="poke-name">{{name}}</p>
+                <p class="poke-dex">Dex No: {{dex_number}}</p>
+                <p class="poke-shape">{{shape}}</p>
+                <p class="poke-color">{{color}}</p>
+                <p class="poke-gender">{{gender}}</p>
+                <p class="poke-type">{{type_1}}</p>
+                <p class="poke-type">{{type_2}}</p>
+                <p class="poke-entry">{{dex_entry}}</p>
+            </div>
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>PokePersonality</h1>
+        </header>
+        <main>
+            <section id="type-question" class="tab">
+                <form id="type">
+                    <p>How would you describe yourself?</p>
+                    <input type="radio" name="type" value="water grass ice flying psychic"> Introverted, Calm, Relaxed
+                    <input type="radio" name="type" value="steel rock ground normal bug"> Sturdy, Grounded, Strong-willed
+                    <input type="radio" name="type" value="psychic ghost dark fairy poison"> Empathetic, Spiritual, Mystical
+                    <input type="radio" name="type" value="fire electric dragon fighting fairy"> Passionate, Energetic, Extroverted
+                </form>
+            </section>
+
+            <section id="growth-question" class="tab">
+                <form id="growth">
+                    <p>How do you approach life?</p>
+                    <input type="radio" name="growth" value="slow fast-then-slow"> Avoid change if possible
+                    <input type="radio" name="growth" value="medium medium-slow"> Take things as they come
+                    <input type="radio" name="growth" value="fast slow-then-fast"> Enthusiastically run toward opportunity
+                </form>
+            </section>
+
+            <section id="shape-question" class="tab">
+                <form id="shape">    
+                    <p>How do you like to dance?</p>
+                    <input type="radio" name="shape" value="fish quadruped humanoid"> I move like an animal
+                    <input type="radio" name="shape" value="wings bug-wings ball"> I fling myself across the dance floor
+                    <input type="radio" name="shape" value="squiggle tenticles blob"> I wriggle all around without a care
+                    <input type="radio" name="shape" value="blob armor upright"> Stand in one place and bob my head
+                    <input type="radio" name="shape" value="arms legs heads"> I shake my body parts to the beat
+                </form>
+            </section>
+
+            <section id="egg-question" class="tab">
+                <form id="egg">
+                    <p>What do you eat for breakfast?</p>
+                    <input type="radio" name="egg_group" value="no-eggs fairy ditto"> I don't eat breakfast
+                    <input type="radio" name="egg_group" value="mineral indeterminate bug"> Simple: toast and yogurt
+                    <input type="radio" name="egg_group" value="water1 water2 water3"> Smoothie
+                    <input type="radio" name="egg_group" value="dragon humanshape monster"> Eggs, bacon, toast, juice
+                    <input type="radio" name="egg_group" value="flying ground plant"> Cereal
+                </form>
+            </section>
+
+            <section id="color-question" class="tab">
+                <form id="color">
+                    <p>What best describes your favorite color?</p>
+                    <input type="radio" name="color" value="black white gray"> Shades
+                    <input type="radio" name="color" value="red yellow pink"> Warm
+                    <input type="radio" name="color" value="blue purple gray"> Cool
+                    <input type="radio" name="color" value="green brown black"> Earthy
+                </form>
+            </section>
+
+            <section id="gender-question" class="tab">
+                <form id="gender">
+                    <p>What do you identify with?</p>
+                    <input type="radio" name="gender" value="DESC"> Femininity
+                    <input type="radio" name="gender" value="ASC"> Masculinity
+                    <input type="radio" name="gender" value="ASC"> Neither
+                    <input type="radio" name="gender" value="DESC"> Both
+                </form>
+            </section>
+
+            <section id="results" class="tab">
+                <!-- result mon inserted here     -->
+            </section>
+        </main>
+        <footer class="copyright">Grace Provost &copy; 2017</footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+        <script>var app = app || {};
+            //const API_URL = "https://pokepersonality.herokuapp.com";
+            const API_URL = "http://localhost:3000";</script>
+        <script src="scripts/models/seedPokes.js"></script>
+        <script src="scripts/controllers/quizController.js"></script>
+        <script src="scripts/views/quizView.js"></script>
+        <script src="scripts/models/quizData.js"></script>
+        <script src="scripts/models/poke.js"></script>
+    </body>
+</html>
