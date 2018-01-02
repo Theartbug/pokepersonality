@@ -4,20 +4,20 @@ app = app || {};
 
 (function(module) {
     const quizControl = {};
-    const selections = {};
+
+    quizControl.selections = {};
 
     quizControl.combineSelections = (selectionName, selection) => {
-        selections[`${selectionName}`] = selection;
-        console.log(selections);
+        quizControl.selections[`${selectionName}`] = selection;
     };
 
-    quizControl.endQuiz = () => {
-
+    quizControl.clearQuiz = () => {
+        quizControl.selections = {};
     };
 
     quizControl.changePokeGender = (genderRatio) => {
         if (genderRatio > 0) {
-            return `${genderRatio/8}% female`;
+            return `${(genderRatio/8) * 100}% female`;
         } else if (genderRatio === 0) {
             return '100% male';
         } else {

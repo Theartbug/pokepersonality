@@ -3,6 +3,7 @@
 app = app || {};
 
 (function(module) {
+
     function pokeBuilder(obj) {
         this.name = obj.name;
         this.img_url = obj.img_url;
@@ -12,8 +13,14 @@ app = app || {};
         this.shape = obj.shape;
         this.color = obj.color;
         this.dex_entry = obj.dex_entry;
-        this.gender = pokeBuilder.changePokeGender(obj.gender);
+        this.gender = app.quizControl.changePokeGender(obj.gender);
     }
+
+    pokeBuilder.results = [];
+
+    pokeBuilder.buildPoke = pokemon => { //If I ever want to display more than one pokemon
+        pokeBuilder.results = pokemon.map(pokeObj => new pokeBuilder(pokeObj));
+    };
 
     pokeBuilder.prototype.toHtml = function(selector) {
         const template = Handlebars.compile($(`${selector}`).text());

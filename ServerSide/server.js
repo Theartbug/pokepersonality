@@ -24,17 +24,26 @@ app.use(body.urlencoded({extended: true}));
 loadPokemonTable();
 
 app.get('/pokemon/match', (req, res) => {
-    const match = req.body.match;
+    const match = req.query;
+    console.log(req.query);
     client.query(`
         SELECT * FROM pokemon WHERE 
-        type_1 = $1 OR type_1 = $2 OR type_1 = $3 OR type_1 = $4 OR type_1 = $5 AND
-        type_2 = $1 OR type_2 = $2 OR type_2 = $3 OR type_2 = $4 OR type_2 = $5 AND
-        color = $6 OR color = $7 OR color = $8 AND
-        growth = $9 OR growth = $10 AND
-        shape = $11 OR shape = $12 OR shape = $13 AND
-        egg_group1 = $14 OR egg_group1 = $15 OR egg_group1 = $16 AND
-        egg_group2 = $14 OR egg_group2 = $15 OR egg_group2 = $16 
-        ORDER BY $17 LIMIT 1`, [match.type[0], match.type[1], match.type[2], match.type[3], match.type[4], match.color[0], match.color[1], match.color[2], match.growth[0], match.growth[1], match.shape[0], match.shape[1], match.shape[2], match.egg_group[0], match.egg_group[1], match.egg_group[2], match.order]
+        ((type_1 = $1 OR type_1 = $2 OR type_1 = $3 OR type_1 = $4 OR type_1 = $5) OR
+        (type_2 = $1 OR type_2 = $2 OR type_2 = $3 OR type_2 = $4 OR type_2 = $5)) 
+        INTERSECT
+        SELECT * FROM pokemon WHERE 
+        (color = $6 OR color = $7 OR color = $8) 
+        INTERSECT
+        SELECT * FROM pokemon WHERE 
+        (growth = $9 OR growth = $10)
+        INTERSECT
+        SELECT * FROM pokemon WHERE
+        (shape = $11 OR shape = $12 OR shape = $13)
+        INTERSECT
+        SELECT * FROM pokemon WHERE 
+        ((egg_group1 = $14 OR egg_group1 = $15 OR egg_group1 = $16) OR
+        (egg_group2 = $14 OR egg_group2 = $15 OR egg_group2 = $16)) 
+        ORDER BY $17 LIMIT 2`, [match.type[0], match.type[1], match.type[2], match.type[3], match.type[4], match.color[0], match.color[1], match.color[2], match.growth[0], match.growth[1], match.shape[0], match.shape[1], match.shape[2], match.egg_group[0], match.egg_group[1], match.egg_group[2], match.order]
     )
         .then(types => res.send(types.rows))
         .catch(console.error);
@@ -74,7 +83,8 @@ app.get('/pokemonspecies/:dex', (req, res) => {
                 shape: poke.shape.name || null,
                 egg_group1: poke.egg_groups[1] ? poke.egg_groups[1].name : poke.egg_groups[0].name, //if there is a second type in the array, it is the main type
                 egg_group2: poke.egg_groups[1] ? poke.egg_groups[0].name : null,
-                gender: poke.gender_rate
+                gender: poke.gender_rate,
+                dex_number: dex
             };
             updatePokemon(pokeObj);
             res.send('done');
@@ -115,8 +125,8 @@ function insertPokemon(poke) {
 function updatePokemon(poke) {
     console.log(poke);
     client.query(
-        'UPDATE pokemon SET color=$1, dex_entry=$2, growth=$3, shape=$4, egg_group1=$5, egg_group2=$6, gender=$8 WHERE name=$7', 
-        [poke.color, poke.dex_entry, poke.growth, poke.shape, poke.egg_group1, poke.egg_group2, poke.name, poke.gender])
+        'UPDATE pokemon SET color=$1, dex_entry=$2, growth=$3, shape=$4, egg_group1=$5, egg_group2=$6, gender=$8 WHERE dex_number=$7', 
+        [poke.color, poke.dex_entry, poke.growth, poke.shape, poke.egg_group1, poke.egg_group2, poke.dex_number, poke.gender])
         .catch(console.error);
 }
 
