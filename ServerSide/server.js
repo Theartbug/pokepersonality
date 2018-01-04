@@ -25,27 +25,48 @@ loadPokemonTable();
 
 app.get('/pokemon/match', (req, res) => {
     const match = req.query;
-    console.log(req.query);
     client.query(`
+        SELECT * FROM (
         SELECT * FROM pokemon WHERE 
         ((type_1 = $1 OR type_1 = $2 OR type_1 = $3 OR type_1 = $4 OR type_1 = $5) OR
-        (type_2 = $1 OR type_2 = $2 OR type_2 = $3 OR type_2 = $4 OR type_2 = $5)) 
+        (type_2 = $1 OR type_2 = $2 OR type_2 = $3 OR type_2 = $4 OR type_2 = $5))
         INTERSECT
         SELECT * FROM pokemon WHERE 
-        (color = $6 OR color = $7 OR color = $8) 
+        (color = $6 OR color = $7 OR color = $8)
         INTERSECT
         SELECT * FROM pokemon WHERE 
         (growth = $9 OR growth = $10)
         INTERSECT
         SELECT * FROM pokemon WHERE
         (shape = $11 OR shape = $12 OR shape = $13)
-        INTERSECT
-        SELECT * FROM pokemon WHERE 
-        ((egg_group1 = $14 OR egg_group1 = $15 OR egg_group1 = $16) OR
-        (egg_group2 = $14 OR egg_group2 = $15 OR egg_group2 = $16)) 
-        ORDER BY $17 LIMIT 2`, [match.type[0], match.type[1], match.type[2], match.type[3], match.type[4], match.color[0], match.color[1], match.color[2], match.growth[0], match.growth[1], match.shape[0], match.shape[1], match.shape[2], match.egg_group[0], match.egg_group[1], match.egg_group[2], match.order]
+        ) t
+        order by
+        CASE
+            WHEN gender BETWEEN -1 AND -1 THEN $14 
+            WHEN gender BETWEEN 0 AND 3 THEN $15
+            WHEN gender BETWEEN 4 AND 6 THEN $16
+            WHEN gender BETWEEN 7 AND 8 THEN $17
+        END LIMIT 1`, [match.type[0], match.type[1], match.type[2], match.type[3], match.type[4], match.color[0], match.color[1], match.color[2], match.growth[0], match.growth[1], match.shape[0], match.shape[1], match.shape[2], match.gender[0], match.gender[1], match.gender[2], match.gender[3]]
     )
-        .then(types => res.send(types.rows))
+        .then(types => {
+            if (types.rows.length < 1) {
+                res.send([
+                    {
+                        dex_number: 0,
+                        name: 'missingNo',
+                        img_url: '/../images/missingno.png',
+                        type_1: 'bird',
+                        type_2: 'normal',
+                        color: 'gray',
+                        dex_entry: 'This is a newly discovered Pokemon. It is currently under investigation. No detailed information is available at this time.',
+                        growth: 'slow',
+                        shape: 'armor',
+                        gender: 'unknown'
+                    }
+                ]);
+            } else {
+                res.send(types.rows);
+            }})   
         .catch(console.error);
 });
 
