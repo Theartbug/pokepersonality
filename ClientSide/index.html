@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="styles/modules.css">
         <link rel="stylesheet" href="styles/state.css"> -->
         <script id="match-template" type="text/x-handlebars-template">
-            <div class="match">
                 <div class="poke-image">
                     <img src="{{img_url}}">
                 </div>
@@ -21,7 +20,6 @@
                 <p class="poke-type">{{type_1}}</p>
                 <p class="poke-type">{{type_2}}</p>
                 <p class="poke-entry">{{dex_entry}}</p>
-            </div>
         </script>
     </head>
     <body>
@@ -32,7 +30,7 @@
             <section id="type-question" class="tab">
                 <form id="type">
                     <p>How would you describe yourself?</p>
-                    <input type="radio" name="type" value="water grass ice flying psychic"> Introverted, Calm, Relaxed
+                    <input type="radio" name="type" value="water grass ice flying psychic"> Calm, Relaxed, Introverted
                     <input type="radio" name="type" value="steel rock ground normal bug"> Sturdy, Grounded, Strong-willed
                     <input type="radio" name="type" value="psychic ghost dark fairy poison"> Empathetic, Spiritual, Mystical
                     <input type="radio" name="type" value="fire electric dragon fighting fairy"> Passionate, Energetic, Extroverted
@@ -59,17 +57,6 @@
                 </form>
             </section>
 
-            <!-- <section id="egg-question" class="tab">
-                <form id="egg">
-                    <p>What do you eat for breakfast?</p>
-                    <input type="radio" name="egg_group" value="no-eggs fairy ditto"> I don't eat breakfast
-                    <input type="radio" name="egg_group" value="mineral indeterminate bug"> Simple: toast and yogurt
-                    <input type="radio" name="egg_group" value="water1 water2 water3"> Smoothie
-                    <input type="radio" name="egg_group" value="dragon humanshape monster"> Eggs, bacon, toast, juice
-                    <input type="radio" name="egg_group" value="flying ground plant"> Cereal
-                </form>
-            </section> -->
-
             <section id="color-question" class="tab">
                 <form id="color">
                     <p>What best describes your favorite color?</p>
@@ -91,7 +78,10 @@
             </section>
 
             <section id="results" class="tab">
-                <!-- result mon inserted here     -->
+                <div class="match">
+                    <!-- result mon inserted here     -->
+                </div>
+                <button id="play-again">Play Again!</button>
             </section>
         </main>
         <footer class="copyright">Grace Provost &copy; 2017</footer>

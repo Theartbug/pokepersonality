@@ -7,6 +7,14 @@ app = app || {};
 
     quizView.initQuiz = () => {
         quizView.changeQuestion();
+        quizView.playAgain();
+    };
+
+    quizView.playAgain = () => {
+        $('#play-again').on('click', function() {
+            app.quizControl.clearQuiz();
+            //TODO: hide results / show first question
+        });
     };
 
     quizView.changeQuestion = () => {
@@ -21,7 +29,7 @@ app = app || {};
 
     quizView.displayResults = () => {
         for (let i = 0; i < app.pokeBuilder.results.length; i++) { //if more than one result is going to be displayed
-            $('#results').append(app.pokeBuilder.results[i].toHtml('#match-template'));
+            $('.match').append(app.pokeBuilder.results[i].toHtml('#match-template'));
             console.log(app.pokeBuilder.results[i]);
         }
     };

@@ -13,6 +13,8 @@ app = app || {};
 
     quizControl.clearQuiz = () => {
         quizControl.selections = {};
+        $('.match').empty();
+        $('input[type="radio"]').prop('checked', false);
     };
 
     quizControl.changePokeGender = (genderRatio) => {
