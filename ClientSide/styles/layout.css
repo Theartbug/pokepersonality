@@ -1,3 +1,97 @@
-section {
+/* BACKGROUND */
+body{
+    background-color: #E8F3E8;
+}
+
+main:after {
+    content: ' ';
+    display: block;
     position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background-image: url('http://www.sepeb.com/pokemon-wallpaper-tumblr/pokemon-wallpaper-tumblr-011.jpg');
+}
+
+/* HEADER */
+
+header {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: rgba(146, 197, 145, .7);
+    /* display: flex;
+    justify-content: space-between; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    height: 100px;
+    width: 100%;
+}
+
+/* QUESTIONS */
+
+/* input[type='radio'] {
+    display: block;
+} */
+
+label {
+    cursor: pointer;
+}
+
+/* The following code is taken from http://code.stephenmorley.org/html-and-css/styling-checkboxes-and-radio-buttons/ */
+  
+input[type=radio   ]:not(old){
+    width     : 2em;
+    margin    : 0;
+    padding   : 0;
+    font-size : 1em;
+    opacity   : 0;
+}
+input[type=radio   ]:not(old) + label{
+    display      : inline-block;
+    margin-left  : -2em;
+    line-height  : 1.5em;
+}
+
+input[type=radio   ]:not(old) + label > span{
+    display          : inline-block;
+    width            : 0.875em;
+    height           : 0.875em;
+    margin           : 0.25em 0.5em 0.25em 0.25em;
+    border           : 0.0625em solid rgb(192,192,192);
+    border-radius    : 0.25em;
+    background       : rgb(224,224,224);
+    background-image :    -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+    background-image :     -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+    background-image :      -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+    background-image : -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+    background-image :         linear-gradient(rgb(240,240,240),rgb(224,224,224));
+    vertical-align   : bottom;
+}
+
+input[type=radio   ]:not(old):checked + label > span{
+    background-image :    -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+    background-image :     -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+    background-image :      -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+    background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+    background-image :         linear-gradient(rgb(224,224,224),rgb(240,240,240));
+}
+
+input[type=radio]:not(old):checked + label > span > span{
+    display          : block;
+    width            : 0.5em;
+    height           : 0.5em;
+    margin           : 0.125em;
+    border           : 0.0625em solid rgb(115,153,77);
+    border-radius    : 0.125em;
+    background       : rgb(153,204,102);
+    background-image :    -moz-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+    background-image :     -ms-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+    background-image :      -o-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+    background-image : -webkit-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+    background-image :         linear-gradient(rgb(179,217,140),rgb(153,204,102));
 }

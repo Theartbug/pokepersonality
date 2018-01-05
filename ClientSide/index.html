@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/modules.css">
         <!-- <link rel="stylesheet" href="styles/state.css"> -->
+        <link href="https://fonts.googleapis.com/css?family=Signika:400,600,700" rel="stylesheet">
         <script id="match-template" type="text/x-handlebars-template">
                 <div class="poke-image">
                     <img src="{{img_url}}">
@@ -29,37 +30,37 @@
         <main>
             <section id="type-question" class="tab">
                 <form id="type">
-                    <p>How would you describe yourself?</p>
-                    <input type="radio" name="type" value="water grass ice flying psychic"> Calm, Relaxed, Introverted
-                    <input type="radio" name="type" value="steel rock ground normal bug"> Sturdy, Grounded, Strong-willed
-                    <input type="radio" name="type" value="psychic ghost dark fairy poison"> Empathetic, Spiritual, Mystical
-                    <input type="radio" name="type" value="fire electric dragon fighting fairy"> Passionate, Energetic, Extroverted
+                    <h3>How would you describe yourself?</h3>
+                    <input id="calm" type="radio" name="type" value="water grass ice flying psychic"><label for="calm"><span><span></span></span>Calm, Relaxed, Introverted</label> 
+                    <input id="sturdy" type="radio" name="type" value="steel rock ground normal bug"><label for="sturdy"><span><span></span></span>Sturdy, Grounded, Strong-willed</label>
+                    <input id="empathetic" type="radio" name="type" value="psychic ghost dark fairy poison"><label for="empathetic"><span><span></span></span>Empathetic, Spiritual, Mystical</label> 
+                    <input id="passionate" type="radio" name="type" value="fire electric dragon fighting fairy"><label for="passionate"><span><span></span></span>Passionate, Energetic, Extroverted</label>
                 </form>
             </section>
 
             <section id="growth-question" class="tab">
                 <form id="growth">
-                    <p>How do you approach life?</p>
-                    <input type="radio" name="growth" value="slow fast-then-slow"> Avoid change if possible
-                    <input type="radio" name="growth" value="medium medium-slow"> Take things as they come
-                    <input type="radio" name="growth" value="fast slow-then-fast"> Enthusiastically run toward opportunity
+                    <h3>How do you approach life?</h3>
+                    <input id="avoid" type="radio" name="growth" value="slow fast-then-slow"><label for="avoid"><span><span></span></span>Avoid change if possible</label>
+                    <input id="take" type="radio" name="growth" value="medium medium-slow"><label for="take"><span><span></span></span>Take things as they come</label> 
+                    <input id="enthused" type="radio" name="growth" value="fast slow-then-fast"><label for="enthused"><span><span></span></span>Enthusiastically run toward opportunity</label> 
                 </form>
             </section>
 
             <section id="shape-question" class="tab">
                 <form id="shape">    
-                    <p>How do you like to dance?</p>
-                    <input type="radio" name="shape" value="fish quadruped humanoid"> I move like an animal
-                    <input type="radio" name="shape" value="wings bug-wings ball"> I fling myself across the dance floor
-                    <input type="radio" name="shape" value="squiggle tenticles blob"> I wriggle all around without a care
-                    <input type="radio" name="shape" value="blob armor upright"> Stand in one place and bob my head
-                    <input type="radio" name="shape" value="arms legs heads"> I shake my body parts to the beat
+                    <h3>How do you like to dance?</h3>
+                    <input id="animal" type="radio" name="shape" value="fish quadruped humanoid"><label for="animal"><span><span></span></span>I move like an animal</label>
+                    <input id"fling" type="radio" name="shape" value="wings bug-wings ball"><label for="fling"><span><span></span></span>I fling myself across the dance floor</label>
+                    <input id="wriggle" type="radio" name="shape" value="squiggle tenticles blob"><label for="wriggle"><span><span></span></span>I wriggle all around without a care</label>
+                    <input id="stand" type="radio" name="shape" value="blob armor upright"><label for="stand"><span><span></span></span>Stand in one place and bob my head</label>
+                    <input id="shake" type="radio" name="shape" value="arms legs heads"><label for="shake"><span><span></span></span>I shake my body parts to the beat</label>
                 </form>
             </section>
 
             <section id="color-question" class="tab">
                 <form id="color">
-                    <p>What best describes your favorite color?</p>
+                    <h3>What best describes your favorite color?</h3>
                     <input type="radio" name="color" value="black white gray"> Shades
                     <input type="radio" name="color" value="red yellow pink"> Warm
                     <input type="radio" name="color" value="blue purple gray"> Cool
@@ -69,7 +70,7 @@
 
             <section id="gender-question" class="tab">
                 <form id="gender">
-                    <p>What do you identify with?</p>
+                    <h3>What do you identify with?</h3>
                     <input type="radio" name="gender" value="4 3 2 1"> Femininity
                     <input type="radio" name="gender" value="2 1 3 4"> Masculinity
                     <input type="radio" name="gender" value="1 3 2 4"> Neither
@@ -79,6 +80,7 @@
 
             <section id="results" class="tab">
                 <div class="match">
+                    <h3>Here is your match:</h3>
                     <!-- result mon inserted here     -->
                 </div>
                 <button id="play-again">Play Again!</button>
