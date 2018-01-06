@@ -1,3 +1,9 @@
+/* TABS */
+
+#growth-question, #shape-question, #color-question, #gender-question, #results {
+    display: none;
+}
+
 /* BACKGROUND */
 body{
     background-color: #E8F3E8;
@@ -16,7 +22,18 @@ main:after {
     background-image: url('http://www.sepeb.com/pokemon-wallpaper-tumblr/pokemon-wallpaper-tumblr-011.jpg');
 }
 
+/* FOOTER */
+
+.copyright {
+    background-color: #0A3409;
+    color: #92C591;
+}
+
 /* HEADER */
+
+#logo {
+    color: #0A3409;
+}
 
 header {
     padding-top: 1%;
@@ -34,12 +51,17 @@ header {
 
 /* QUESTIONS */
 
-/* input[type='radio'] {
-    display: block;
-} */
+form {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
 
 label {
     cursor: pointer;
+    margin-top: 10px;
 }
 
 /* The following code is taken from http://code.stephenmorley.org/html-and-css/styling-checkboxes-and-radio-buttons/ */
@@ -53,7 +75,7 @@ input[type=radio   ]:not(old){
 }
 input[type=radio   ]:not(old) + label{
     display      : inline-block;
-    margin-left  : -2em;
+    /* margin-left  : -2em; */
     line-height  : 1.5em;
 }
 

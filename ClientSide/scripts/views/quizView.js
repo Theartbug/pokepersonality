@@ -15,7 +15,7 @@ app = app || {};
     quizView.playAgain = () => {
         $('#play-again').on('click', function() {
             $('#results').fadeOut(1000, app.quizControl.clearQuiz); //make sure the quiz is not cleared prematurely
-            $('#type-question').delay(500).fadeIn(1000);
+            $('#type-question').delay(800).fadeIn(1000);
         });
     };
 
@@ -25,7 +25,7 @@ app = app || {};
             if ($(this).parent().attr('id') === 'gender') { //if the last question was selected, send the data
                 app.quizData.getMatch(app.quizControl.selections, () => { //makes sure there is a result to show
                     $('#gender-question').fadeOut(1000);
-                    $('#results').delay(500).fadeIn(1000);
+                    $('#results').delay(800).fadeIn(1000);
                 });
             } else {
                 $(this).parent().parent().slideUp('slow');
