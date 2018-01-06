@@ -1,1 +1,66 @@
 /* QUESTIONS */
+
+.questions {
+    background-color: #92C591;
+    padding-bottom: 10px;
+    border-radius: 10%;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.card {
+    background-color: #559E54;
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-radius: 0 0 10% 10%;
+}
+
+/* RESULTS */
+
+.poke-image {
+    width: 50%;
+    border-radius: 50%;
+    margin: 0 auto;
+    background-color: #E8F3E8;
+    margin-bottom: 10px;
+}
+
+.poke-image img {
+    width: 120%;
+    margin-left: -10%;
+}
+
+.match {
+    padding-top: 10px;
+}
+
+.match p {
+    margin-top: 8px;
+    margin-left: 6px;
+    margin-right: 6px;
+
+}
+
+.card h3 {
+    font-size: 1.4rem;
+}
+
+.match span {
+    font-weight: 600;
+}
+
+#play-again {
+    margin-top: 20px;
+    padding: 20px 45px;
+    font-size: 1.3rem;
+    background: #0A3409;
+    border: 0 none;
+    cursor: pointer;
+    color: #92C591;
+    border-radius: 5%;
+}

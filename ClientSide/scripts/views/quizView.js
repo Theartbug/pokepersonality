@@ -28,8 +28,8 @@ app = app || {};
                     $('#results').delay(800).fadeIn(1000);
                 });
             } else {
-                $(this).parent().parent().slideUp('slow');
-                $(this).parent().parent().next().delay(400).slideDown('slow');
+                $(this).parent().parent().parent().slideUp('slow');
+                $(this).parent().parent().parent().next().delay(400).slideDown('slow');
 
                 // $(this).parent().parent().hide('slide', {direction: 'left'}, 1000);
                 // $(this).parent().parent().next().delay(500).show('slide', {direction: 'right'}, 1000);

@@ -4,6 +4,7 @@
     padding: 0;
     font-family: 'Signika', sans-serif;
     text-align: center;
+    font-size: 1.1rem;
 }
   
 a {
@@ -22,5 +23,9 @@ body {
 
 main {
     flex: 1 0 auto;
-    margin-top: 120px;
+    margin-top: 150px;
+}
+
+img {
+    width: 100%;
 }
