@@ -1,4 +1,4 @@
-const API_URL2 = "https://pokepersonality.herokuapp.com/";
+const API_URL2 = 'https://pokepersonality.herokuapp.com/';
 // const API_URL2 = "http://localhost:3000";
 
 
