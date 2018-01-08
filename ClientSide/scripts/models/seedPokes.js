@@ -1,5 +1,5 @@
-// const API_URL2 = "https://pokeflip.herokuapp.com";
-const API_URL2 = "http://localhost:3000";
+const API_URL2 = "https://pokepersonality.herokuapp.com/";
+// const API_URL2 = "http://localhost:3000";
 
 
 let callAllPokemon1 = (start, finish) => {
